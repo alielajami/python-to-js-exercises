@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diamond star pattern</title>
+</head>
+<body>
+    <script>
+        const rows = prompt("Enter the number of rows: ");
+
+        console.log("For rows = " + rows);
+        for (let i = 1; i <= rows; i++) {
+            console.log(" ".repeat(rows - i) + "*".repeat(2 * i - 1));
+        }
+
+        for (let i = rows - 1; i >= 1; i--) {
+            console.log(" ".repeat(rows - i) + "*".repeat(2 * i - 1));
+        }
+    </script>
+</body>
+</html>
