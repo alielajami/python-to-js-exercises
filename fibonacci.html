@@ -1,0 +1,25 @@
+!<!DOCTYPE html>
+<html>
+<head>
+    <title>Fibonacci sequence</title>
+</head>
+<body>
+    <script>
+        const x = prompt("Enter a number x to generate the Fib sequence up to x: ");
+
+        if (x <= 0) {
+            console.log("Please enter a positive integer.");
+        } else {
+            let a = 0, b = 1;
+
+            console.log("The first " +  x  + " Fibonacci numbers are:");
+            for (i = 0; i < x; i++){
+                console.log(a)
+                let temp = a;
+                a = b;
+                b = temp + b;
+            }
+        }
+    </script>
+</body>
+</html>
