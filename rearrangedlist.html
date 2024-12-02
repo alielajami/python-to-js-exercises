@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Pricing</title>
+</head>
+<body>
+    <script>
+
+    const listSize = parseInt(prompt("Enter the size of the list:"));
+
+    let integerList = [];
+    let rearrangedList = [];
+
+    for (let i = 0; i < listSize; i++) {
+        integerList.push(parseInt(prompt(`Enter the integer ${i + 1}:`)));
+    }
+
+    function specialRearrangement(integerList) {
+        for (let j = 0; j < integerList.length; j++) {
+            if (integerList[j] % 2 === 0) {
+                rearrangedList.push(integerList[j]);
+            }
+        }
+
+        for (let k = 0; k < integerList.length; k++) {
+            if (integerList[k] % 2 !== 0) {
+                rearrangedList.push(integerList[k]);
+            }
+        }
+        
+        return rearrangedList;
+    }
+
+    console.log("The rearranged list is: ", specialRearrangement(integerList));
+    </script>
+</body>
+</html>
