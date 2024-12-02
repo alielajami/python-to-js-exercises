@@ -1,0 +1,33 @@
+!<!DOCTYPE html>
+<html>
+<head>
+    <title>Moving Zeroes</title>
+</head>
+<body>
+    <script>
+        function moveZeroes(array) {
+        let zeroCount = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === 0) {
+                zeroCount++;
+            }
+        }
+
+        for (let j = 0; j < zeroCount; j++) {
+            let index = array.indexOf(0);
+            array.splice(index, 1);
+            array.push(0);
+        }
+        return array;
+    }
+
+    const arraySize = parseInt(prompt("Enter the size of the array: "));
+    let integersArray = [];
+
+    for (let i = 0; i < arraySize; i++) {
+        integersArray.push(parseInt(prompt(`Enter the integer ${i + 1}: `)));
+    }
+    console.log(moveZeroes(integersArray));
+    </script>
+</body>
+</html>
