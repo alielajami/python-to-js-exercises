@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Pricing</title>
+</head>
+<body>
+    <script>
+        const days = parseInt(prompt("Enter the number of days: "), 10);
+        let prices = [];
+
+        for (let i = 1; i <= days; i++) {
+            const value = parseFloat(prompt("Enter the price of the stock on day " + i + ": "));
+
+            if (value > 0) {
+                prices.push(value);
+            } else {
+                console.log("Invalid input. Enter a positive number.");
+                break;
+            }
+        }
+
+        function maxProfit(prices) {
+            let min_price = prices[0];
+            let maxprofit = 0;
+            let buy_day = 1;
+            let sell_day = 1;
+
+            for (let j = 1; j < prices.length; j++) {
+                if (prices[j] < min_price) {
+                    min_price = prices[j];
+                    buy_day = j + 1;
+                }
+                let profit = prices[j] - min_price;
+                if (profit > maxprofit) {
+                    maxprofit = profit;
+                    sell_day = j + 1;
+                }
+            }
+
+            return { maxprofit, buy_day, sell_day };
+        }
+
+        const result = maxProfit(prices);
+        if (result.maxprofit > 0){
+            console.log(`Maximum profit is ${result.maxprofit} if you buy on day ${result.buy_day} and sell on day ${result.sell_day}.`);
+        } else {
+            console.log("There is no profit to be made in this chart!");
+        }
+    </script>
+</body>
+</html>
