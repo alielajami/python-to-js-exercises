@@ -5,7 +5,53 @@
 </head>
 <body>
     <script>
+        function longestSubarray(array) {
+        let maxLength = 0;
+        let startIndex = 0;
+        let endIndex = 0;
 
+        for (let start = 0; start < array.length; start++) {
+            let zeroes = 0;
+            let ones = 0;
+
+            for (let end = start; end < array.length; end++) {
+                if (array[end] === 0) {
+                    zeroes++;
+                } else {
+                    ones++;
+                }
+
+                if (zeroes === ones) {
+                    let currentLength = end - start + 1;
+                    if (currentLength > maxLength) {
+                        maxLength = currentLength;
+                        startIndex = start;
+                        endIndex = end;
+                    }
+                }
+            }
+        }
+
+        let longSubarray = array.slice(startIndex, endIndex + 1);
+        return [maxLength, longSubarray];
+    }
+
+    const listSize = parseInt(prompt("Enter the size of the list: "));
+    let binaryList = [];
+
+    for (let i = 0; i < listSize; i++) {
+        let num = parseInt(prompt(`Enter Binary Element ${i + 1}: `));
+        if (num === 0 || num === 1) {
+            binaryList.push(num);
+        } else {
+            console.log("Invalid input. Enter 0 or 1.");
+            break;
+        }
+    }
+
+    const [length, subarray] = longestSubarray(binaryList);
+    console.log(`The longest subarray with equal number of 0s and 1s is ${length} digits long.`);
+    console.log(`The subarray is: ${subarray}`);
     </script>
 </body>
 </html>
