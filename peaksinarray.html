@@ -1,0 +1,30 @@
+!<!DOCTYPE html>
+<html>
+<head>
+    <title>Peaks in an array</title>
+</head>
+<body>
+    <script>
+    const arraySize = parseInt(prompt("Enter the size of the array: "));
+    let integersArray = [];
+
+    for (let i = 0; i < arraySize; i++) {
+        integersArray.push(parseInt(prompt(`Enter the integer ${i + 1}: `)));
+    }
+
+    function findPeaks(array) {
+        let peaks = [];
+        for (let j = 1; j < array.length - 1; j++) {
+            if (array[j] > array[j - 1] && array[j] > array[j + 1]) {
+                peaks.push(array[j]);
+            }
+        }
+        return peaks;
+    }
+
+    const peaks = findPeaks(integersArray);
+    console.log(`There are ${peaks.length} peaks in the array.`);
+    console.log(`Peaks in the array: ${peaks}`);
+    </script>
+</body>
+</html>
