@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rebuilding Sentences</title>
+</head>
+<body>
+    <script>
+        function rebuildSentence(wordsArray, numbersArray) {
+            let modifiedWordsList = [];
+            
+            for (let k = 0; k < wordsArray.length; k++) {
+                let modifiedWord = '';
+                for (let i = 0; i < numbersArray[k]; i++) {
+                    if (i < wordsArray[k].length) {
+                        modifiedWord += wordsArray[k][i];
+                    }
+                }
+                modifiedWordsList.push(modifiedWord);
+            }
+            
+            return modifiedWordsList.join(' ');
+        }
+
+        const n1 = parseInt(prompt("Enter the number of words:"));
+        let wordsList = [];
+
+        for (let i = 0; i < n1; i++) {
+            const word = prompt(`Enter word ${i + 1}:`);
+            wordsList.push(word);
+        }
+
+        let numbersList = [];
+        for (let j = 0; j < wordsList.length; j++) {
+            const num = parseInt(prompt(`Enter the number of letters in word ${j + 1}:`));
+            numbersList.push(num);
+        }
+
+        console.log("Reconstructed sentence:", rebuildSentence(wordsList, numbersList));
+    </script>
+</body>
+</html>
