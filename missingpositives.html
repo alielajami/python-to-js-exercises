@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Missing Positives</title>
+</head>
+<body>
+    <script>
+        function firstMissingPositive(array) {
+            let count = 1;
+            for (let j = 0; j < array.length; j++) {
+                if (array[j] === count) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        const n = parseInt(prompt("Enter the numbers of digits in the list:"));
+        let list1 = [];
+
+        for (let i = 0; i < n; i++) {
+            const num = parseInt(prompt(`Enter the number ${i + 1}:`));
+            list1.push(num);
+        }
+        console.log("The first missing positive number is: ", firstMissingPositive(list1));
+    </script>
+</body>
+</html>
